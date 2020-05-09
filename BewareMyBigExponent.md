@@ -24,5 +24,20 @@ Exponent:
                     13:36:4d:9a:ac:9a:3c:9e:e4:81:a8:fc:b5:d5:98:
                     b6:c1
 ----
+3. Exported .pub key from Cer using OpenSSL
+4. Attempted RSA CTF Tool brute force but no success:
+ python ./RsaCtfTool.py --publickey ~/Downloads/key.pub --verbose --private 
+[*] Performing hastads attack.
+[*] Performing factordb attack.
+[*] Performing pastctfprimes attack.
+[*] Loaded 71 primes
+[*] Performing noveltyprimes attack.
+[*] Performing smallq attack.
+[*] Performing wiener attack.
+[*] Performing comfact_cn attack.
+[*] Performing fermat attack.
+[*] Performing siqs attack.
+[*] Warning: Modulus too large for SIQS attack module
+
 Thats as far as I got    
                 
