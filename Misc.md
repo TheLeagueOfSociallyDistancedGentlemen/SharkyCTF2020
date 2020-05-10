@@ -69,6 +69,8 @@ First...don't bother cat'ing the file, its too big. xxd, strings, and a bunch mo
 
 Then I thought...I wonder what's at the end of the file.  "tail -n 100 my_huge_file"  Nope, that hung and just kept chewing on the file.  That's wierd...I wonder what its stuck on?  Oh...I bet its trying to figure out how to count backwards by lines and since the file is basically ALL null.  I wonder if I can just tail by bytes.  Yup.  "tail -c 100 my_huge_file" and it spat out the flag.  Lots of swearing ensued.
 
+I messaged the challenge author after and this was definitely not the intended way to solve it, which makes me even happier that it worked. (:
+
 
 ### Flag:
 shkCTF{sp4rs3_f1l3s_4r3_c001_6cf61f47f6273dfa225ee3366eacb8eb}
