@@ -49,3 +49,26 @@ The site has a snippet of code showing high level logic around what impossible c
 
 ### Flag:
 shkCTF{Schr0diNgeR_w4s_A_gRea7_p01yg1o7_4e78011325dfbe4a05fd533ea422cc94}
+
+
+# My huge file
+### 298 Points
+I have a very big file for you. I hid a present inside.
+
+Classic tools wont be useful here.
+
+Connect with ssh big@sharkyctf.xyz -p 9000. Password : big.
+
+Creator : Nofix
+
+### Solution:
+
+I REALLY overthought this.  I'm starting to pick up on a patern there.  So first....the hint is BULLSHIT.  I used the most classicist of tools.  One I use nearly every day.  Well not as much since I started working for a company that ingests logs, but I digress.
+
+First...don't bother cat'ing the file, its too big. xxd, strings, and a bunch more are disabled.  If you run sed it gets killed after a few seconds.  First off I ran tr and tried to kill all the white space and write a file to the /tmp folder, which they gave us.  That didn't seem to shring anything.  They left Python enabled so I wrote my own quick script to display the hex to see how this 15tb file is padded.  Looks like mostly Null, which explains why my tr command that removed whitespace didn't do much.  First I updated the python to strip Null and write to a file.  Waaaaay too slow.  Back to tr...still waaaaay too slow.
+
+Then I thought...I wonder what's at the end of the file.  "tail -n 100 my_huge_file"  Nope, that hung and just kept chewing on the file.  That's wierd...I wonder what its stuck on?  Oh...I bet its trying to figure out how to count backwards by lines and since the file is basically ALL null.  I wonder if I can just tail by bytes.  Yup.  "tail -c 100 my_huge_file" and it spat out the flag.  Lots of swearing ensued.
+
+
+### Flag:
+shkCTF{sp4rs3_f1l3s_4r3_c001_6cf61f47f6273dfa225ee3366eacb8eb}
